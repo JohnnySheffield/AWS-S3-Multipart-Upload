@@ -15,7 +15,7 @@
         //
         //  - file: $('#input_file')[0].files[0] or something like this :)
         //
-        //  - auth_url: 'http://my.com/auth_sign'
+        //  - auth_url: '/api/transfers/signature' 
         //      URL on your server where is possible get signature for request
         //
         //      e.x.backend function on python(django):
@@ -185,7 +185,12 @@
             xhr.onreadystatechange = function(){
                 self.base_onreadystatechange({
                     f_200: function(){
-                        signature = xhr.response;
+                        //signature will be in a format as 
+                        //    {
+                        //      "signature": "4FxayeX7JhFiTPl022gxEjISILk="
+                        //    }
+                        //
+                        signature = xhr.response.signature;
                         success_callback && success_callback(signature, date_gmt);
                     },
                     name_non_200_error: 'on_auth_error'
