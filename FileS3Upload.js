@@ -268,7 +268,7 @@
                 uploadId;
             xhr.open('POST', joinUrlElements(self.config.aws_url, '/' + self.config.file_name + '?uploads'));
             xhr.setRequestHeader('Authorization', 'AWS ' + self.config.aws_key_id + ':' + signature);
-            xhr.setRequestHeader('Access-Control-Request-Method', '*');
+            xhr.setRequestHeader('Access-Control-Request-Method', 'GET, OPTIONS, POST');
             xhr.setRequestHeader('x-amz-date', date_gmt);
             xhr.onreadystatechange = function(){
                 self.base_onreadystatechange({
