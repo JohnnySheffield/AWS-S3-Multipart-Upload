@@ -176,7 +176,7 @@
                 '\n\nx-amz-date:' + date_gmt + '\n/' +
                 self.config.bucket + '/' +
                 self.config.file_name + suffix_to_sign;
-            xhr.open('GET', joinUrlElements(self.config.auth_url, '/?to_sign=' + encodeURIComponent(to_sign)));
+            xhr.open('GET', joinUrlElements(self.config.auth_url, '?to_sign=' + encodeURIComponent(to_sign)));
             for (var key in self.config.auth_url_headers){
                 if (self.config.auth_url_headers.hasOwnProperty(key)) {
                     xhr.setRequestHeader(key, self.config.auth_url_headers[key]);
